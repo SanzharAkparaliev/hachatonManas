@@ -18,8 +18,5 @@ public class Category {
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany(mappedBy = "category",cascade = CascadeType.REMOVE)
-    private Set<Product> products;
-
 
 }

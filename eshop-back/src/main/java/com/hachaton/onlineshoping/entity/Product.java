@@ -29,7 +29,4 @@ public class Product {
     @JoinColumn(name = "CATEGORY_ID",nullable = false)
     Category category;
 
-    @OneToMany(mappedBy = "product")
-    private Set<Comment> comments;
-
 }

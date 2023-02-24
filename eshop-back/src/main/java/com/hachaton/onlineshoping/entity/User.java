@@ -33,8 +33,6 @@ public class User {
     @JoinColumn(name = "fk_role")
     private Role role;
 
-    @OneToMany(mappedBy = "user")
-    private Set<Comment>comments;
 
 
 

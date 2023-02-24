@@ -15,10 +15,8 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "PRODUCT")
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@SequenceGenerator(name = "id_generator", sequenceName = "PRODUCT_SEQ", allocationSize = 1)
+public class Product extends BaseEntity{
     @Column(name = "NAME")
     private String name;
 

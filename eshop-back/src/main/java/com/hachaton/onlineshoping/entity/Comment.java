@@ -8,10 +8,8 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "COMMENT")
-public class Comment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@SequenceGenerator(name = "id_generator", sequenceName = "COMMENT_SEQ", allocationSize = 1)
+public class Comment extends BaseEntity{
 
     @Column(name = "CONTENT")
     private String content;

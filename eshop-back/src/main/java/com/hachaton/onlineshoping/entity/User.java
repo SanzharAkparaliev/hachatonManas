@@ -15,12 +15,9 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @Table(name = "USERS")
-@SequenceGenerator(name = "SEQ_ID", sequenceName = "USER_SEQ", allocationSize = 1)
-public class User {
+@SequenceGenerator(name = "id_generator", sequenceName = "USER_SEQ", allocationSize = 1)
+public class User extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
-    private Long id;
     @NotBlank
     @Column(name = "USERNAME", unique = true)
     private String username;

@@ -10,11 +10,8 @@ import java.util.Set;
 @Setter
 @Entity
 @Table( name = "CATEGORY")
-public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+@SequenceGenerator(name = "id_generator", sequenceName = "CATEGORY_SEQ", allocationSize = 1)
+public class Category extends BaseEntity{
     @Column(name = "NAME")
     private String name;
 

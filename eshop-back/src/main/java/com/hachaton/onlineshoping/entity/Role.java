@@ -12,12 +12,9 @@ import java.util.stream.Collectors;
 @Setter
 @Entity
 @Table(name = "ROLES")
-@SequenceGenerator(name = "SEQ_ID", sequenceName = "ROLE_SEQ", allocationSize = 1, initialValue = 10)
-public class Role {
+@SequenceGenerator(name = "id_generator", sequenceName = "ROLE_SEQ", allocationSize = 1)
+public class Role extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ROLE_SEQ")
-    private Long id;
 
     @Column(name = "role_name")
     private String roleName;

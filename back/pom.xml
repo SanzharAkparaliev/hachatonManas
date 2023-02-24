@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hachaton</groupId>
-	<artifactId>onlineshoping</artifactId>
+	<artifactId>eshop-back</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>onlineshoping</name>
 	<description>onlineshoping</description>

@@ -11,7 +11,7 @@ import lombok.Setter;
 @SequenceGenerator(name = "id_generator", sequenceName = "COMMENT_SEQ", allocationSize = 1)
 public class Comment extends BaseEntity{
 
-    @Column(name = "CONTENT")
+    @Column(name = "CONTENT", columnDefinition = "TEXT")
     private String content;
 
     @ManyToOne()

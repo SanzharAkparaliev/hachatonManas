@@ -18,5 +18,7 @@ public class OrderDTO {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
     private OrderDTO parentId;
+    private String hashKey;
+    private String guestEmail;
 
 }

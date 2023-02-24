@@ -23,6 +23,9 @@ public class Order extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "PARENT_ID")
     private Order parentId;
+    private String hashKey;
+
+    private String guestEmail;
 
     public OrderDTO toModel() {
         return OrderDTO.builder()
@@ -30,6 +33,7 @@ public class Order extends BaseEntity {
                 .userId(userId.toModel())
                 .productId(productId.toModel())
                 .parentId(parentId.toModel())
+                .hashKey(hashKey)
                 .build();
     }
 }

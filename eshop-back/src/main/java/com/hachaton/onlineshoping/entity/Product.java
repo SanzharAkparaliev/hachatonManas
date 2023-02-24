@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -22,6 +23,7 @@ public class Product extends BaseEntity{
 
     @Column(name = "DESCRIPTION")
     private String description;
+    @ElementCollection
     private List<String> urls;
     @Column(name = "PRICE")
     private BigDecimal price;

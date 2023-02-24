@@ -16,7 +16,7 @@ import java.util.List;
 public class CategoryController {
     private final CategoryService categoryService;
 
-    @GetMapping
+    @GetMapping("/list")
     public List<Category> getAllCategory(){
         return  categoryService.getAll();
     }

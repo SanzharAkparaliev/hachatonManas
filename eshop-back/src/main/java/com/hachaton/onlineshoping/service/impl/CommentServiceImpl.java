@@ -38,10 +38,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
 
-    @Override
-    public List<Comment> getAll() {
-        return commentRepository.findAll();
-    }
+
 
     @Override
     public List<Comment> getCommentByUser(User user) {
@@ -49,7 +46,8 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public List<Comment> getCommetByProduct(Product product) {
+    public List<Comment> getCommetByProduct(Long productId) {
+        Product product = productRepository.findById(productId).orElseThrow(() -> new NoSuchElementException("Product by id: " + productId + " cannot be found !"));
         return commentRepository.findByProduct(product);
     }
 
@@ -58,5 +56,14 @@ public class CommentServiceImpl implements CommentService {
         Comment comment = commentRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Comment by id: " + id + " cannot be found !"));
         commentRepository.delete(comment);
         return comment;
+    }
+
+    @Override
+    public Comment update(Comment comment) {
+        Comment commentInDb = commentRepository.findById(comment.getId()).orElseThrow(() -> new NoSuchElementException("Comment by id: " + comment.getId() + " cannot be found !"));
+        commentInDb.setProduct(comment.getProduct());
+        commentInDb.setContent(comment.getContent());
+        commentInDb.setUser(comment.getUser());
+        return commentRepository.save(commentInDb);
     }
 }

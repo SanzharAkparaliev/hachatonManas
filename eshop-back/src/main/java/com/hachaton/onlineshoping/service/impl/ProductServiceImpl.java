@@ -46,4 +46,11 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getProductByCategory(Category category) {
         return productRepository.findByCategory(category);
     }
+
+    @Override
+    public ProductDTO deleteProduct(Long id) {
+        Product product = productRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Product by id: " + id + " cannot be found !"));
+        productRepository.delete(product);
+        return product.toModel();
+    }
 }

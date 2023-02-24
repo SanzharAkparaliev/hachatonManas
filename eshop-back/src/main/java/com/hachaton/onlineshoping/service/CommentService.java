@@ -9,9 +9,10 @@ import java.util.List;
 
 public interface CommentService {
     Comment get(Long id);
-    Comment getByName(String name);
-    Comment save(Comment comment);
+    Comment save(Long userId,Long productId,String comment);
     List<Comment> getAll();
     List<Comment> getCommentByUser(User user);
     List<Comment> getCommetByProduct(Product product);
+
+    Comment deleteComment(Long id);
 }

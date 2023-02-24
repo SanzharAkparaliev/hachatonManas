@@ -14,4 +14,5 @@ public interface ProductService {
     Product save(Product product);
     List<ProductDTO> getAll();
     List<Product> getProductByCategory(Category category);
+    ProductDTO deleteProduct(Long id);
 }

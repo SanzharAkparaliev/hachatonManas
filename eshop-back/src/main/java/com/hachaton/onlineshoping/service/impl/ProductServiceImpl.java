@@ -53,4 +53,16 @@ public class ProductServiceImpl implements ProductService {
         productRepository.delete(product);
         return product.toModel();
     }
+
+    @Override
+    public ProductDTO update(ProductDTO productDTO) {
+        Product product = productRepository.findById(productDTO.getId()).orElseThrow(() -> new NoSuchElementException("Product by id: " + productDTO.getId() + " cannot be found !"));
+        product.setDescription(productDTO.getDescription());
+        product.setUrls(productDTO.getUrls());
+        product.setCategory(productDTO.getCategory());
+        product.setPrice(productDTO.getPrice());
+        product.setName(productDTO.getName());
+        Product newProduct = productRepository.save(product);
+        return newProduct.toModel();
+    }
 }

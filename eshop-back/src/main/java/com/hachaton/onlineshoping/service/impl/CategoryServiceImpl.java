@@ -31,4 +31,20 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.findAll();
     }
 
+    @Override
+    public Category delete(Long id) {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Category by id: " + id + " cannot be found !"));
+        categoryRepository.delete(category);
+        return category;
+    }
+
+    @Override
+    public Category update(Long id, String name) {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Category by id: " + id + " cannot be found !"));
+        category.setName(name);
+        return categoryRepository.save(category);
+    }
+
 }

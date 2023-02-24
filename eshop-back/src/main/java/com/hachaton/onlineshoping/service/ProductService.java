@@ -15,4 +15,6 @@ public interface ProductService {
     List<ProductDTO> getAll();
     List<Product> getProductByCategory(Category category);
     ProductDTO deleteProduct(Long id);
+
+    ProductDTO update(ProductDTO productDTO);
 }

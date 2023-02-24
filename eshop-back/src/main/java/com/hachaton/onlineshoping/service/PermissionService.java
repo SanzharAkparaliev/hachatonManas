@@ -1,17 +1,13 @@
 package com.hachaton.onlineshoping.service;
 
-import com.hachaton.onlineshoping.model.RequestNewPermission;
-import org.springframework.http.ResponseEntity;
+import com.hachaton.onlineshoping.model.PermissionDTO;
+
+import java.util.List;
 
 public interface PermissionService {
 
-    ResponseEntity<?> register(RequestNewPermission permission);
+    PermissionDTO getPermission(Long id);
 
-    ResponseEntity<?> getPermission(Long id);
+    List<PermissionDTO> getAllPermissions();
 
-    ResponseEntity<?> getAllPermissions();
-
-    ResponseEntity<?> deletePermission(Long id);
-
-    ResponseEntity<?> update(Long id, RequestNewPermission updatedPermission);
 }

@@ -27,13 +27,6 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category save(Category category) {
-        Category category1 = category.getId() == null ? new Category() : categoryRepository.findById(category.getId()).get();
-        category1.setName(category.getName());
-        return categoryRepository.save(category1);
-    }
-
-    @Override
     public List<Category> getAll() {
         return categoryRepository.findAll();
     }

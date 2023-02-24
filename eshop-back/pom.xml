@@ -3,16 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.3</version>
+		<groupId>com.hachaton</groupId>
+		<artifactId>eshop</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.hachaton</groupId>
 	<artifactId>eshop-back</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>onlineshoping</name>
-	<description>onlineshoping</description>
 	<properties>
 		<java.version>19</java.version>
 	</properties>

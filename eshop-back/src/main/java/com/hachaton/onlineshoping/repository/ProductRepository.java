@@ -17,5 +17,5 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     @Query("SELECT p from Product p where p.name LIKE concat('%',:query,'%')")
     List<Product> searchProduct(String query);
     List<Product> findByPriceBetween(BigDecimal start,BigDecimal end);
-    List<Product> findByCreatedAt(LocalDateTime start,LocalDateTime end);
+    List<Product> findByCreatedAtBetween(LocalDateTime start, LocalDateTime end);
 }

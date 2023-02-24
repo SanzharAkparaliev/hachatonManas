@@ -83,6 +83,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> priceBetweenByDate(LocalDateTime start, LocalDateTime end) {
-        return priceBetweenByDate(start,end);
+        return productRepository.findByCreatedAtBetween(start,end);
     }
 }

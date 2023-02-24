@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/product")
 public class ProductController {
-    private ProductService productService;
+    private final ProductService productService;
 
     @GetMapping("/list")
     public List<ProductDTO> fetchALlProducts() {
@@ -48,6 +48,5 @@ public class ProductController {
     public List<Product> searchProductByName(@RequestParam("productName") String query){
         return productService.searchProductsByName(query);
     }
-    
 
 }

@@ -35,6 +35,7 @@ public class CategoryController {
     public Category updateCategory(@RequestBody Category category){
         return categoryService.update(category);
     }
+
     @PostMapping
     public Category creatingCategory(@RequestBody Category category){
         return categoryService.create(category);

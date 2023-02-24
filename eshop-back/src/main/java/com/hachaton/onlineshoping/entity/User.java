@@ -27,10 +27,6 @@ public class User extends BaseEntity{
     @JoinColumn(name = "fk_role")
     private Role role;
 
-
-
-
-
     public UserDTO toModel() {
         return UserDTO.builder()
                 .id(id)

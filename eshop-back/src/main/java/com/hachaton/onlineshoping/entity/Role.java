@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 @SequenceGenerator(name = "id_generator", sequenceName = "ROLE_SEQ", allocationSize = 1)
 public class Role extends BaseEntity{
 
-
     @Column(name = "role_name")
     private String roleName;
 
@@ -26,7 +25,6 @@ public class Role extends BaseEntity{
             joinColumns = {@JoinColumn(name = "id_role")},
             inverseJoinColumns = {@JoinColumn(name = "id_permission")})
     private Set<Permission> permissions;
-
 
     public RoleDTO toModel() {
         return RoleDTO.builder()

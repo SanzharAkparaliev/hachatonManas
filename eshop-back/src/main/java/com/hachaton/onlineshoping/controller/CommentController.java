@@ -15,6 +15,7 @@ import java.util.List;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CommentController {
     private final CommentService commentService;
+
     @GetMapping("/product/{id}")
     public List<Comment> getCommentByProduct(@PathVariable("id") Long productId){
       return  commentService.getCommetByProduct(productId);

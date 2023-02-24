@@ -9,6 +9,8 @@ import com.hachaton.onlineshoping.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -72,5 +74,15 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> searchProductsByName(String query) {
         return productRepository.searchProduct(query);
+    }
+
+    @Override
+    public List<Product> priceBetweenByPrice(BigDecimal start, BigDecimal end) {
+        return productRepository.findByPriceBetween(start,end);
+    }
+
+    @Override
+    public List<Product> priceBetweenByDate(LocalDateTime start, LocalDateTime end) {
+        return priceBetweenByDate(start,end);
     }
 }

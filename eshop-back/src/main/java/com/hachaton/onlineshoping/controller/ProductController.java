@@ -48,5 +48,6 @@ public class ProductController {
     public List<Product> searchProductByName(@RequestParam("productName") String query){
         return productService.searchProductsByName(query);
     }
+    
 
 }

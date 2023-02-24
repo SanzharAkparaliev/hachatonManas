@@ -40,11 +40,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category update(Long id, String name) {
-        Category category = categoryRepository.findById(id)
-                .orElseThrow(() -> new NoSuchElementException("Category by id: " + id + " cannot be found !"));
-        category.setName(name);
-        return categoryRepository.save(category);
+    public Category update(Category category) {
+        Category categoryInDb = categoryRepository.findById(category.getId())
+                .orElseThrow(() -> new NoSuchElementException("Category by id: " + category.getId() + " cannot be found !"));
+        categoryInDb.setName(category.getName());
+        return categoryRepository.save(categoryInDb);
     }
 
 }

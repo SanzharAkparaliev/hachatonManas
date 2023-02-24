@@ -8,7 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-@RequiredArgsConstructor
+@NoArgsConstructor
 @AllArgsConstructor
 public class OrderDTO {
     private Long id;

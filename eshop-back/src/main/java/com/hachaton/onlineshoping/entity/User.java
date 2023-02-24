@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -18,7 +16,6 @@ import java.util.Set;
 @SequenceGenerator(name = "id_generator", sequenceName = "USER_SEQ", allocationSize = 1)
 public class User extends BaseEntity{
 
-    @NotBlank
     @Column(name = "USERNAME", unique = true)
     private String username;
 

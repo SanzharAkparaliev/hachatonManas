@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table( name = "ORDER")
+@Table( name = "ORDERS")
 @SequenceGenerator(name = "id_generator", sequenceName = "ORDER_SEQ", allocationSize = 1)
 public class Order extends BaseEntity {
     @ManyToOne
@@ -34,6 +34,7 @@ public class Order extends BaseEntity {
                 .productId(productId.toModel())
                 .parentId(parentId.toModel())
                 .hashKey(hashKey)
+                .guestEmail(guestEmail)
                 .build();
     }
 }

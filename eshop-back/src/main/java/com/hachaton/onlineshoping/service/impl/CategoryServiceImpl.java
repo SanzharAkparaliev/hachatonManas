@@ -47,4 +47,10 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.save(categoryInDb);
     }
 
+    @Override
+    public Category create(Category categoryModel) {
+        Category category = categoryModel.getId() == null ? new Category() : categoryRepository.getById(categoryModel.getId());
+        return categoryRepository.save(category);
+    }
+
 }

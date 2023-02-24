@@ -1,5 +1,8 @@
 package com.hachaton.onlineshoping.entity;
 
+import com.hachaton.onlineshoping.model.ProductDTO;
+import com.hachaton.onlineshoping.model.RoleDTO;
+import com.hachaton.onlineshoping.model.UserDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,5 +31,16 @@ public class Product {
     @ManyToOne()
     @JoinColumn(name = "CATEGORY_ID",nullable = false)
     Category category;
+
+    public ProductDTO toModel() {
+        return ProductDTO.builder()
+                .id(id)
+                .price(price)
+                .category(category)
+                .description(description)
+                .urls(urls)
+                .name(name)
+                .build();
+    }
 
 }

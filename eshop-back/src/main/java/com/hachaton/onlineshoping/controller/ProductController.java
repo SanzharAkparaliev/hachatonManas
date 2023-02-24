@@ -43,6 +43,11 @@ public class ProductController {
     public List<Product> getProductsByCategory(@PathVariable("id") Long categoryId){
         return productService.getProductByCategory(categoryId);
     }
+
+    @GetMapping("/search")
+    public List<Product> searchProductByName(@RequestParam("productName") String query){
+        return productService.searchProductsByName(query);
+    }
     
 
 }

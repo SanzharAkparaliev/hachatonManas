@@ -68,4 +68,9 @@ public class ProductServiceImpl implements ProductService {
         Product newProduct = productRepository.save(product);
         return newProduct.toModel();
     }
+
+    @Override
+    public List<Product> searchProductsByName(String query) {
+        return productRepository.searchProduct(query);
+    }
 }

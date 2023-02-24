@@ -3,13 +3,16 @@ package com.hachaton.onlineshoping.service;
 import com.hachaton.onlineshoping.entity.User;
 import com.hachaton.onlineshoping.model.RequestNewUser;
 import com.hachaton.onlineshoping.model.UserDTO;
+import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 public interface UserService {
-    UserDTO register(RequestNewUser user);
+    ResponseEntity register(RequestNewUser user);
 
     UserDTO getUser(Long id);
 
-    UserDTO getAllUser();
+     List<UserDTO> getAllUser();
 
     UserDTO deleteUser(Long id);
 

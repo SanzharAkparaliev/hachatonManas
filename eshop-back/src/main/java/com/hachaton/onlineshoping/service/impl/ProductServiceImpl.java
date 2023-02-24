@@ -27,12 +27,18 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product save(Product product) {
-        return null;
+        Product productInDb = product.getId() == null ? new Product() : productRepository.getById(product.getId());
+        productInDb.setName(product.getName());
+        productInDb.setUrls(product.getUrls());
+        productInDb.setCategory(product.getCategory());
+        productInDb.setPrice(product.getPrice());
+        productInDb.setDescription(product.getDescription());
+        return productRepository.save(productInDb);
     }
 
     @Override
     public List<Product> getAll() {
-        return null;
+        return productRepository.findAll();
     }
 
     @Override

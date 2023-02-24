@@ -1,16 +1,12 @@
 package com.hachaton.onlineshoping.entity;
 
 import com.hachaton.onlineshoping.model.ProductDTO;
-import com.hachaton.onlineshoping.model.RoleDTO;
-import com.hachaton.onlineshoping.model.UserDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -24,6 +20,9 @@ public class Product extends BaseEntity{
     @Column(name = "DESCRIPTION")
     private String description;
     @ElementCollection
+    @CollectionTable(name = "product_urls",
+    joinColumns = @JoinColumn(name = "product_id"))
+    @Column(name = "url", columnDefinition = "text")
     private List<String> urls;
     @Column(name = "PRICE")
     private BigDecimal price;

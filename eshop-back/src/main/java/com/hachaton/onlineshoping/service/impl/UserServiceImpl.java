@@ -8,7 +8,6 @@ import com.hachaton.onlineshoping.repository.RoleRepository;
 import com.hachaton.onlineshoping.repository.UserRepository;
 import com.hachaton.onlineshoping.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,16 +19,21 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    private final PasswordEncoder passwordEncoder;
+//    private final PasswordEncoder passwordEncoder;
+//
+//    @Override
+//    public UserDTO register(RequestNewUser user) {
+//        User newUser = new User();
+//        Role role = roleRepository.findById(user.getRole()).orElseThrow(NoSuchElementException::new);
+//        newUser.setUsername(user.getUsername());
+//        newUser.setRole(role);
+//        newUser.setPassword(passwordEncoder.encode(user.getPassword()));
+//        return userRepository.save(newUser).toModel();
+//    }
 
     @Override
     public UserDTO register(RequestNewUser user) {
-        User newUser = new User();
-        Role role = roleRepository.findById(user.getRole()).orElseThrow(NoSuchElementException::new);
-        newUser.setUsername(user.getUsername());
-        newUser.setRole(role);
-        newUser.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(newUser).toModel();
+        return null;
     }
 
     @Override

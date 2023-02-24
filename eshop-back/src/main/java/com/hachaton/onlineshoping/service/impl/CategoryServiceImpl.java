@@ -50,6 +50,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Category create(Category categoryModel) {
         Category category = categoryModel.getId() == null ? new Category() : categoryRepository.getById(categoryModel.getId());
+        category.setName(categoryModel.getName());
         return categoryRepository.save(category);
     }
 

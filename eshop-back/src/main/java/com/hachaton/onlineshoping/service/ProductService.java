@@ -13,7 +13,7 @@ public interface ProductService {
     Product getByName(String name);
     Product save(Product product);
     List<ProductDTO> getAll();
-    List<Product> getProductByCategory(Category category);
+    List<Product> getProductByCategory(Long categoryId);
     ProductDTO deleteProduct(Long id);
 
     ProductDTO update(ProductDTO productDTO);

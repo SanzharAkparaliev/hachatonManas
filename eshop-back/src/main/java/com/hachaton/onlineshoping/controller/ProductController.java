@@ -38,6 +38,11 @@ public class ProductController {
     public ProductDTO updateProduct(@RequestBody ProductDTO productDTO){
         return productService.update(productDTO);
     }
+
+    @GetMapping("/category/{id}")
+    public List<Product> getProductsByCategory(@PathVariable("id") Long categoryId){
+        return productService.getProductByCategory(categoryId);
+    }
     
 
 }

@@ -3,6 +3,7 @@ package com.hachaton.onlineshoping.service.impl;
 import com.hachaton.onlineshoping.entity.Category;
 import com.hachaton.onlineshoping.entity.Product;
 import com.hachaton.onlineshoping.model.ProductDTO;
+import com.hachaton.onlineshoping.repository.CategoryRepository;
 import com.hachaton.onlineshoping.repository.ProductRepository;
 import com.hachaton.onlineshoping.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
     private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
     @Override
     public Product get(Long id) {
         return productRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Product by id: " + id + " cannot be found !"));
@@ -43,7 +45,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getProductByCategory(Category category) {
+    public List<Product> getProductByCategory(Long categoryId) {
+        Category category = categoryRepository.findById(categoryId).orElseThrow(() -> new NoSuchElementException("Category by id: " + categoryId + " cannot be found !"));
         return productRepository.findByCategory(category);
     }
 

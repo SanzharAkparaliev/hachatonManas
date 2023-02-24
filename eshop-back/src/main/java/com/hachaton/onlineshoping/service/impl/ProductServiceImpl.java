@@ -2,19 +2,20 @@ package com.hachaton.onlineshoping.service.impl;
 
 import com.hachaton.onlineshoping.entity.Category;
 import com.hachaton.onlineshoping.entity.Product;
+import com.hachaton.onlineshoping.model.ProductDTO;
 import com.hachaton.onlineshoping.repository.ProductRepository;
 import com.hachaton.onlineshoping.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService {
-    @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
     @Override
     public Product get(Long id) {
         return productRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Product by id: " + id + " cannot be found !"));
@@ -37,8 +38,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getAll() {
-        return productRepository.findAll();
+    public List<ProductDTO> getAll() {
+        return productRepository.findAll().stream().map(Product::toModel).collect(Collectors.toList());
     }
 
     @Override

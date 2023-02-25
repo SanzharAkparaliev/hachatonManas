@@ -6,6 +6,8 @@ import com.hachaton.onlineshoping.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -47,6 +49,17 @@ public class ProductController {
     @GetMapping("/search")
     public List<Product> searchProductByName(@RequestParam("productName") String query){
         return productService.searchProductsByName(query);
+    }
+    @GetMapping("/filterbyprice")
+    public List<Product> getProductsbetweenByPrice(@RequestParam("startPrice") BigDecimal start,
+                                              @RequestParam("endPrice") BigDecimal end){
+        return productService.priceBetweenByPrice(start,end);
+    }
+
+    @GetMapping("/filterbydate")
+    public List<Product> getProductsbetweenByDate(@RequestParam("startDate") LocalDateTime start,
+                                              @RequestParam("endPrice") LocalDateTime end){
+        return productService.priceBetweenByDate(start,end);
     }
     
 

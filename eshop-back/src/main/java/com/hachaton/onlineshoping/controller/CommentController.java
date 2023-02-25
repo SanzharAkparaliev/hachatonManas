@@ -35,4 +35,11 @@ public class CommentController {
     public Comment updateComment(@RequestBody Comment comment){
         return commentService.update(comment);
     }
+
+    @GetMapping
+    public Comment createComment(@RequestParam("userId") Long userId,
+                                 @RequestParam("productId")Long productId,
+                                 @RequestParam("comment") String content){
+        return commentService.save(userId,productId,content);
+    }
 }

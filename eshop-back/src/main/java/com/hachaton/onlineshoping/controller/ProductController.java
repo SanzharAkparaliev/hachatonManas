@@ -7,7 +7,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -57,8 +59,12 @@ public class ProductController {
     }
 
     @GetMapping("/filterbydate")
-    public List<Product> getProductsbetweenByDate(@RequestParam("startDate") LocalDateTime start,
-                                              @RequestParam("endPrice") LocalDateTime end){
+    public List<Product> getProductsbetweenByDate(@RequestParam("startDate") String startTime,
+                                              @RequestParam("endDate") String endTime){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        LocalDateTime start = LocalDate.parse(startTime, formatter).atStartOfDay();
+        LocalDateTime end = LocalDate.parse(endTime, formatter).atStartOfDay();
         return productService.priceBetweenByDate(start,end);
     }
     
